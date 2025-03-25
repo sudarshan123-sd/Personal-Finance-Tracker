@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker (₹)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-200 font-poppins min-h-screen transition-colors duration-300">
+    <div class="container mx-auto p-6 max-w-4xl">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-bold text-black dark:text-gray-100 tracking-tight">Finance Tracker (₹)</h1>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="theme-toggle" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-gray-600 transition duration-300"></div>
+                <div class="absolute left-1 top-1 w-4 h-4 bg-yellow-400 rounded-full transition-transform duration-300 peer-checked:translate-x-5 flex items-center justify-center text-xs">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon hidden">🌙</span>
+                </div>
+            </label>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-gradient-to-r from-green-400 to-green-600 text-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                <h2 class="text-lg font-semibold">Total Income</h2>
+                <p id="total-income" class="text-3xl font-bold mt-2">₹0</p>
+            </div>
+            <div class="bg-gradient-to-r from-red-400 to-red-600 text-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                <h2 class="text-lg font-semibold">Total Expenses</h2>
+                <p id="total-expenses" class="text-3xl font-bold mt-2">₹0</p>
+            </div>
+            <div class="bg-gradient-to-r from-blue-400 to-blue-600 text-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                <h2 class="text-lg font-semibold">Balance</h2>
+                <p id="balance" class="text-3xl font-bold mt-2">₹0</p>
+            </div>
+        </div>
+
+        <!-- Form to Add Transaction -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg mb-10 border border-gray-100 dark:border-gray-700">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Add Transaction</h2>
+            <form id="transaction-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" id="description" placeholder="Description" class="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" required>
+                    <input type="number" id="amount" placeholder="Amount (₹)" class="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" step="0.01" required>
+                    <select id="type" class="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <input type="date" id="date" class="border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition" required>
+                </div>
+                <button type="submit" class="depth-button mt-6 w-full bg-purple-600 text-white py-3 px-6 rounded-xl font-semibold">Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Transactions</h2>
+            <ul id="transaction-list" class="space-y-4"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
