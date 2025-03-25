@@ -1,0 +1,1 @@
+A simple, user-friendly web application to track personal finances in Indian Rupees (₹). Built with HTML, CSS (Tailwind CSS), and JavaScript, this app allows users to add income and expense transactions, view summaries (total income, expenses, and balance), and manage transactions with a clean, modern UI.
